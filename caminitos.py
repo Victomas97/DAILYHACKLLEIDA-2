@@ -1,8 +1,8 @@
 import networkx as nx
 import numpy as np
 
-fileInput = "b.in"
-fileOutput = "b2.out"
+fileInput = "c.in"
+fileOutput = "c.out"
 
 # INPUT
 time = 0

@@ -1,7 +1,7 @@
 import numpy as np
 
-fileInput = "d.in"
-fileOutput = "d.out"
+fileInput = "a.in"
+fileOutput = "a.out"
 
 # INPUT
 time = 0
@@ -42,20 +42,19 @@ def processInput():
         reader_library.append(int(text[cont].split()[2]))
         book = text[cont].split()[3:]
         books = {}
-        person_book_value.append({})
         c = 0
         while c < len(book):
             read_cost = int(book[c + 1]) + distance_p2p(int(book[c]), int(text[cont].split()[2]))
             if read_cost <= time:
                 calc = book_value[int(book[c])] / read_cost
-                person_book_value[cnt_person].setdefault(int(book[c]), calc)
-                person_book_value[cnt_person] = {k: v for k, v in sorted(person_book_value[cnt_person].items(),
-                                                                         key=lambda item: item[1])}
+                person_book_value.append((cnt_person, int(book[c]), calc))
                 books[int(book[c])] = int(book[c + 1])
             c += 2
         reader_book.append(books)
         cont += 1
         cnt_person += 1
+    person_book_value.sort()
+
 
 
 def move(book, lib):
@@ -141,7 +140,7 @@ def selectNext():
     nextPerson = -1
     cont = 0
     for person in person_book_value:
-        if len(person.values()) != 0:
+        if len(person.values()) is not 0:
             m = list(person.values())[len(person.values()) - 1]
             if m > max:
                 max = m
@@ -179,7 +178,7 @@ def schedule():
                 if position != -1:
                     move(book_id, reader_library[reader])
                     llibre_no_disp.setdefault(book_id, (
-                    position - distance(book_id, reader), position + get_person_time(reader, book_id)))
+                        position - distance(book_id, reader), position + get_person_time(reader, book_id)))
                     pintar(timeMat, reader, position, get_person_time(reader, book_id))
                     read(book_id, reader)
         reader = selectNext()
