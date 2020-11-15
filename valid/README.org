@@ -1,0 +1,5 @@
+#+TITLE: Validator
+#+AUTHOR: sergisi
+
+* Como ejecutar
+~python3 -m src~
