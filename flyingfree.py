@@ -1,7 +1,9 @@
 import numpy as np
+from operator import itemgetter
 
-fileInput = "a.in"
-fileOutput = "a.out"
+
+fileInput = "d.in"
+fileOutput = "d.out"
 
 # INPUT
 time = 0
@@ -43,7 +45,7 @@ def processInput():
         book = text[cont].split()[3:]
         books = {}
         c = 0
-        while c < len(book):
+        while c < len(book) and c < 100:
             read_cost = int(book[c + 1]) + distance_p2p(int(book[c]), int(text[cont].split()[2]))
             if read_cost <= time:
                 calc = book_value[int(book[c])] / read_cost
@@ -53,7 +55,7 @@ def processInput():
         reader_book.append(books)
         cont += 1
         cnt_person += 1
-    person_book_value.sort()
+    sorted(person_book_value, key=itemgetter(2))
 
 
 
@@ -134,36 +136,21 @@ def writeOutput():
         for x in actions:
             fd.write(x + '\n')
 
-
-def selectNext():
-    max = 0
-    nextPerson = -1
-    cont = 0
-    for person in person_book_value:
-        if len(person.values()) is not 0:
-            m = list(person.values())[len(person.values()) - 1]
-            if m > max:
-                max = m
-                nextPerson = cont
-        cont += 1
-    return nextPerson
-
-
 def get_person_time(person_id, book_id):
     return int(dict(reader_book[person_id]).get(book_id))
 
 
-def schedule():
+def schedule(): # PERSON, BOOK, CALC
     global book_library
     global book_value
     global reader_library
     timeMat = np.zeros((len(reader_library), int(time)))
     llibre_no_disp = {}
-    reader = selectNext()
 
-    while reader != -1:
-        book = person_book_value[reader].popitem()
-        book_id = book[0]
+    while len(person_book_value) > 0:
+        book = person_book_value.pop(len(person_book_value)-1)
+        book_id = book[1]
+        reader = book[0]
         if book[1] != -1:
             if book_is_here(book_id, reader):
                 position = get_forat(timeMat, reader, get_person_time(reader, book_id), 0,
@@ -181,8 +168,6 @@ def schedule():
                         position - distance(book_id, reader), position + get_person_time(reader, book_id)))
                     pintar(timeMat, reader, position, get_person_time(reader, book_id))
                     read(book_id, reader)
-        reader = selectNext()
-
 
 processInput()
 schedule()
