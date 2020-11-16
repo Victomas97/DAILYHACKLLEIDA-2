@@ -1,6 +1,6 @@
 # Bibliocat
 
-Puntuació total: 59.887.358
+Puntuació total: 60.001.270
 
 # Score A
 ![SCORE A:](IMG/A.PNG)

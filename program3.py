@@ -45,7 +45,7 @@ def processInput():
         book = text[cont].split()[3:]
         books = {}
         c = 0
-        while c < len(book) and c < 15000:
+        while c < len(book) and c < 10000:
             read_cost = int(book[c + 1]) + distance_p2p(int(book[c]), int(text[cont].split()[2]))
             if read_cost <= time:
                 calc = book_value[int(book[c])] / read_cost
