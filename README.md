@@ -20,3 +20,5 @@ Puntuació total: 59.887.358
 
 * En el mateix repositori es troba OUT.zip amb els outputs per a cada input. 
 * També hi ha part del codi utilitzat per obtenir-los.
+
+Víctor Tomàs
