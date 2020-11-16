@@ -2,19 +2,19 @@
 
 Puntuació total: 59.887.358
 
-##Score A
+# Score A
 ![SCORE A:](IMG/A.PNG)
 
-##Score B
+# Score B
 ![SCORE B:](IMG/B.PNG) 
 
-##Score C
+# Score C
 ![SCORE C:](IMG/C.PNG)
 
-##Score D
+# Score D
 ![SCORE D:](IMG/D.PNG)
 
-##Score E
+# Score E
 ![SCORE E:](IMG/E.PNG)
 
 
