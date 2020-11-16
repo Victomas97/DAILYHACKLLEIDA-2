@@ -2,21 +2,23 @@
 
 Puntuació total: 60.001.270
 
-# Score A
+## Score A
 ![SCORE A:](IMG/A.PNG)
 
-# Score B
+## Score B
 ![SCORE B:](IMG/B.PNG) 
 
-# Score C
+## Score C
 ![SCORE C:](IMG/C.PNG)
 
-# Score D
+## Score D
 ![SCORE D:](IMG/D.PNG)
 
-# Score E
+## Score E
 ![SCORE E:](IMG/E.PNG)
 
 
 * En el mateix repositori es troba OUT.zip amb els outputs per a cada input. 
 * També hi ha part del codi utilitzat per obtenir-los.
+
+Víctor Tomàs
